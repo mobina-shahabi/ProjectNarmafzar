@@ -85,8 +85,8 @@ class Application(db.Model):
 
         return dict
 ### ## End Subsection 2
-### End Section 3
-
+     
+### ##  Subsection 3 : App information
 class Reviews(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=False, nullable=False)
@@ -104,7 +104,8 @@ class Reviews(db.Model):
         }
 
         return dict
-
+### ## End Subsection 3
+### End Section 3
 #### Section 4: Create the Tables
 db.create_all()
 #### End Section 4
@@ -247,6 +248,7 @@ def store():
         return redirect(url_for(".sign_up"))
 ##### #### End Subsection 4
 
+##### #### Subsection 5: Route for app page
 @app.route("/store/<id>", methods=['GET', 'POST'])
 def app_page(id):
     if "username" in session:
@@ -272,7 +274,9 @@ def app_page(id):
 
     else:
         return redirect(url_for(".sign_up"))
+##### #### End Subsection 5
 
+##### #### Subsection 6: Route for Edit inf
 @app.route("/edit", methods=['GET', 'POST'])
 def edit():
     if "username" in session:
@@ -296,7 +300,9 @@ def edit():
         return render_template("edit_info.html", user=user, age=age)
     else:
         return render_template("index.html")
+##### #### End Subsection 6
 
+##### #### Subsection 7: Route for log out
 @app.route("/logout")
 def log_out():
     session["username"] = None
