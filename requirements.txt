@@ -1,6 +1,6 @@
 cachelib==0.5.0
 click==8.0.3
-Flask==2.0.2
+Flask==2.3.2
 Flask-MySQL==1.5.2
 flask-paginate==2021.12.28
 Flask-Session==0.4.0
